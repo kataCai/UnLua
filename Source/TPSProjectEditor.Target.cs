@@ -15,9 +15,22 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class TPSProjectEditorTarget : TargetRules{    public TPSProjectEditorTarget(TargetInfo Target) : base(Target)    {        Type = TargetType.Editor;
+public class TPSProjectEditorTarget : TargetRules
+{
+    public TPSProjectEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
         DefaultBuildSettings = BuildSettingsVersion.V2;
-        ExtraModuleNames.AddRange(            new string[]            {
+        ExtraModuleNames.AddRange(
+            new string[]
+            {
                 "TPSProject"
-            }            );
-    }}
+            }
+            );
+        if (Platform == UnrealTargetPlatform.Mac)
+        {
+            bOverrideBuildEnvironment = true;
+            AdditionalCompilerArguments = "-Wno-unused-but-set-variable";
+        }
+    }
+}
