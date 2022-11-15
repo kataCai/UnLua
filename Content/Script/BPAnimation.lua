@@ -16,7 +16,16 @@ local M = UnLua.Class()
  end
 
  function M:BlueprintUpdateAnimation(DeltaTimeX)
-     print("BP_Animation_C BlueprintUpdateAnimation")
+     local editableCharacterObject = self:GetOwningActor()
+     local actorClass = UE.UObject.GetClass(editableCharacterObject)
+     local editableCharacterClass = UE.UClass.Load('/Game/Core/Blueprints/BP_SomeBody.BP_SomeBody')
+     if actorClass:IsChildOf(editableCharacterClass) then
+         -- 增加右手碰撞体
+         self.LeftArmCapsules:Add("right_elbow", editableCharacterObject.RightLowArmCapsule)
+     else
+         print("Cast To BP_EditableCharacter Failed")
+     end
+
  end
 
 
