@@ -2,12 +2,16 @@
 local M = UnLua.Class()
 
 function M:Construct()
-	self.ExitButton.OnClicked:Add(self, M.OnClicked_ExitButton)	
-	--self.ExitButton.OnClicked:Add(self, function(Widget) UE.UKismetSystemLibrary.ExecuteConsoleCommand(Widget, "exit") end )
+	self.FirstSceneButton.OnClicked:Add(self, M.OnClicked_FirstSceneButton)
+	self.SecondSceneButton.OnClicked:Add(self, M.OnClicked_SecondSceneButton)
 end
 
-function M:OnClicked_ExitButton()
-	UE.UKismetSystemLibrary.ExecuteConsoleCommand(self, "exit")
+function M:OnClicked_FirstSceneButton()
+	self:ChangeToFirstScene()
+end
+
+function M:OnClicked_SecondSceneButton()
+	self:ChangeToSecondScene()
 end
 
 return M
