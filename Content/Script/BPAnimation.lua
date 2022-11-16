@@ -11,7 +11,6 @@ local M = UnLua.Class()
 
 
  function M:BlueprintBeginPlay()
-     self.Overridden.BlueprintBeginPlay(self)
      print("BP_Animation_C BlueprintBeginPlay")
      local editableCharacterObject = self:GetOwningActor()
      local actorClass = UE.UObject.GetClass(editableCharacterObject)
