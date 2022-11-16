@@ -20,6 +20,7 @@ public class TPSProjectEditorTarget : TargetRules
     public TPSProjectEditorTarget(TargetInfo Target) : base(Target)
     {
         Type = TargetType.Editor;
+        BuildEnvironment = TargetBuildEnvironment.Shared;
         DefaultBuildSettings = BuildSettingsVersion.V2;
         ExtraModuleNames.AddRange(
             new string[]

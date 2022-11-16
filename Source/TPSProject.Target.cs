@@ -15,8 +15,18 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class TPSProjectTarget : TargetRules{    public TPSProjectTarget(TargetInfo Target) : base(Target)    {        Type = TargetType.Game;
+public class TPSProjectTarget : TargetRules
+{
+    public TPSProjectTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Game;
+        BuildEnvironment = TargetBuildEnvironment.Shared;
         DefaultBuildSettings = BuildSettingsVersion.V2;
-        ExtraModuleNames.AddRange(            new string[]            {
+        ExtraModuleNames.AddRange(
+            new string[]
+            {
                 "TPSProject"
-            }            );    }}
+            }
+            );
+    }
+}
